@@ -86,6 +86,7 @@ get_header(); ?>
 				$arg = array(
 					'post_type'			=>	'post',
 					'post_per_page'		=>	-1,
+					'cat'				=>	10,
 					'meta_query' 		=> array(
 												'relation'		=>	'OR', // Relation between those arrays
 												array(
@@ -137,6 +138,50 @@ get_header(); ?>
 			<hr>
 
 			<h2>WordPress Custom Query - Part 06 - tax_query</h2>
+
+			<?php
+				$arg = array(
+							'post_type' 	=> 'post',
+							'post_per_page'	=>	-1,
+							'tax_query'		=>	array(
+
+								'relation'	=>	'AND',	//Default Value 'AND' another value 'OR'
+
+								array(
+								//'taxonomy'				=>	'category',
+									'taxonomy'				=>	'genre',
+									'field'					=>	'term_id', //slug
+									'terms'					=>	array(22, 24), // Category slug
+									'including_children'	=>	true, //Default value - With child category
+									'operator'				=>	'IN' // with this category
+								),
+
+								array(
+									'taxonomy'	=> 'post_tag',
+									'field'		=>	'slug',
+									'terms'		=>	array('drupal', 'note'),
+									'operator'	=>	'IN' //with this category
+								)
+							)
+						);
+				$query = new WP_Query($arg);
+
+				while($query->have_posts()) : $query->the_post(); ?>
+
+					<h4><?php the_title(); ?></h4>
+					<h5>Category :</h5>
+					<p><?php the_category() ; ?></p>
+					<h5>Tag :</h5>
+					<p><?php the_tags() ; ?></p>
+
+				<?php endwhile; wp_reset_query(); ?>
+
+
+			<hr>
+
+			<h2>WordPress Custom Query - Part 07 - Custom Filters</h2>
+			
+
 			
 
 

@@ -4517,6 +4517,33 @@ a.to-the-top > * {
 	display: none;
 }
 
+/* --------------------------- New css --------------------------*/
+
+.the_field{
+	width: 20%;
+	float: left;
+	padding: 0 15px;
+}
+.block{
+	clear: both;
+    display: table;
+    width: 100%;
+}
+.the_field select[name="size"],
+.the_field select[name="color"]
+{
+	width: 100%;
+	padding: 1.5rem 1.8rem;
+	border-color: #dcd7ca;
+}
+.the_field button[type="submit"]{
+	width: 100%;
+	padding: 1.5rem 1.8rem;
+    margin-top: 25px;
+
+}
+
+
 
 /* -------------------------------------------------------------------------- */
 

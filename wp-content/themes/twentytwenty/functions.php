@@ -193,6 +193,9 @@ function twentytwenty_register_styles() {
 	// Add print CSS.
 	wp_enqueue_style( 'twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
+	// Add bootstrap CSS.
+	//wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '1.1', 'all');
+
 }
 
 add_action( 'wp_enqueue_scripts', 'twentytwenty_register_styles' );
