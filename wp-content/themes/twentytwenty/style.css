@@ -4536,14 +4536,45 @@ a.to-the-top > * {
 	padding: 1.5rem 1.8rem;
 	border-color: #dcd7ca;
 }
-.the_field button[type="submit"]{
+.the_field button[type="submit"],
+.search-field button[type="submit"]
+{
 	width: 100%;
 	padding: 1.5rem 1.8rem;
     margin-top: 25px;
-
 }
-
-
+.search-field{
+	width: 25%;
+	float: left;
+	padding: 15px;
+}
+.search-field:first-child{
+	width: 50%;
+}
+.search-field button[type="submit"]{
+	margin-top: 0;
+}
+.search-bg{
+	background-color: #d6d6d6;
+}
+.search-field label{
+	float: left;
+	width: 30%;
+	padding: 1.5rem 0;
+}
+.search-field select{
+	float: left;
+	width: 70%;
+	padding: 1.5rem 1.8rem;
+	border-color: #dcd7ca;
+}
+h4.title{
+	text-align: center;
+	font-weight: 200;
+}
+h4.title span{
+	color:red;
+}
 
 /* -------------------------------------------------------------------------- */
 

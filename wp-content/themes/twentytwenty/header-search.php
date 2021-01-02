@@ -179,12 +179,11 @@
 				get_template_part( 'template-parts/modal-search' );
 			}
 			?>
-
 			<main id="site-content" role="main" class="search-bg">
 				<div class="section-inner">
-					<form action="/query/search" method="get">
+					<form action="get" action="/search">
 						<div class="search-field">
-							<input type="text" name="search_text">
+							<input type="text">
 						</div>
 						<div class="search-field">
 							<label>Type :</label>
@@ -205,6 +204,5 @@
 		</header><!-- #site-header -->
 
 		<?php
-		
 		// Output the menu modal.
 		get_template_part( 'template-parts/modal-menu' );
