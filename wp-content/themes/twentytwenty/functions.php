@@ -180,6 +180,16 @@ require get_template_directory() . '/inc/custom-css.php';
 /**
  * Register and Enqueue Styles.
  */
+wp_register_style( 'dataTables-css', 'https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css', false );
+wp_enqueue_style('dataTables-css');
+
+wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.js', null, null, true );
+wp_enqueue_script('jquery');
+
+wp_register_script( 'dataTables-js', 'https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js', null, null, true );
+wp_enqueue_script('dataTables-js');
+
+
 function twentytwenty_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
@@ -756,4 +766,37 @@ function twentytwenty_get_elements_array() {
 	* @param array Array of elements
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
+}
+
+
+
+
+// Student's details form
+//https://www.youtube.com/watch?v=zrTBtFbY8Gw&t=255s
+//https://www.youtube.com/watch?v=kIn_35j4phI&t=69s
+
+//https://www.youtube.com/watch?v=OWEjpp_CUEk&t=224s
+
+//wpdb->update(table_name, array(values), array(conditions)); //Update Syntex
+//wpdb->delete(table_name, array(condions)); // Delete Syntex
+
+if (isset($_POST['submit'])) {
+		global $wpdb;
+		$data_array = array(
+					'id'		=> $_POST['id'],
+					'student'	=> $_POST['student'],
+					'rol_num'	=> $_POST['rol_num'],
+					'pass_mark'	=> $_POST['pass_mark'],
+					'get_mark'	=> $_POST['get_mark']
+				);
+
+	$table_name = 'result';
+	$rowResult = $wpdb->insert($table_name, $data_array, $format=NULL);
+
+	if($rowResult == 1){
+		echo '<h1>form submit successfully in database<h1>';
+	}else{
+		echo 'Error Form submission';
+	}
+	die;
 }

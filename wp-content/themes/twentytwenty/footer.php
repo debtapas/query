@@ -53,7 +53,7 @@
 
 				</div><!-- .section-inner -->
 
-			</footer><!-- #site-footer -->
+			</footer><!-- #site-footer -->			
 
 		<?php wp_footer(); ?>
 
