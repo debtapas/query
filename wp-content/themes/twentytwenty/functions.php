@@ -800,3 +800,23 @@ if (isset($_POST['submit'])) {
 	}
 	die;
 }
+
+
+
+//After log out, page redirect to login page
+
+function redirect_to_custom_login_page(){
+	wp_redirect(site_url() . "/custom-login");
+	exit();
+}
+add_action("wp_logout", "redirect_to_custom_login_page");
+
+
+function fn_redirect_wp_admin(){
+	global $pagenow;
+
+	if($pagenow == "wp_login.php" && $_GET['action'] != "logout"){
+		wp_redirect(site_url() . "/custom-login");
+		exit();
+	}
+}

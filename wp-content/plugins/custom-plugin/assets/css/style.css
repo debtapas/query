@@ -1,1 +1,5 @@
-/* This is our css file *?
+/* This is our css file */
+section p.heading{
+	color: #ff0a42 !important;
+	line-height: 122px;
+}
