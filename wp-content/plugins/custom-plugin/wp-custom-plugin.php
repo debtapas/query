@@ -95,21 +95,24 @@ function custom_plugin_assests(){
 // Include custom javascript in head section ===================	
 	wp_localize_script("cpl_script", "ajaxurl", admin_url("admin-ajax.php"));
 }
-add_action("init", "custom_plugin_assests");
+// add_action("init", "custom_plugin_assests");
 
-if(isset($_REQUEST['action'])){ //it checks the action param is set or not
-	switch ($_REQUEST['action']) { //if set pass to switch method to match case
-		case 'custom_plugin_library' :
+// if(isset($_REQUEST['action'])){ //it checks the action param is set or not
+// 	switch ($_REQUEST['action']) { //if set pass to switch method to match case
+// 		case 'custom_plugin_library' :
 
-		add_action("admin_init", "add_custom_plugin_library"); // match case
-			function custom_plugin_library(){ // function attached with the action hook
-			global $wpdb;
-				include_once PLUGIN_DIR_PATH."/library/custom-plugin-lib.php"; // ajax hndler file within /library folder
-			}
-				break;
-	}
+// 		    add_action("admin_init", "add_custom_plugin_library"); // match case
+// 			function add_custom_plugin_library(){ // function attached with the action hook
+// 			global $wpdb;
+// 			include_once PLUGIN_DIR_PATH."/library/custom-plugin-lib.php"; // ajax hndler file within /library folder
+// 			}
+// 				break;
+// 	}
+// }
+add_action('wp_ajax_demo_ajax', 'demo_ajax');
+function demo_ajax(){
+	echo 'test';
 }
-
 
 //table generating code ===================
 function custom_pluging_tables(){

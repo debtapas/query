@@ -72,7 +72,8 @@ get_header(); ?>
 			$query = new WP_Query($arg);
 
 			while($query->have_posts()) : $query->the_post(); ?>
-				<h5><?php the_title(); ?></h5>
+				<h5><?php the_title(); ?></h5>				
+		       <p><?php the_excerpt(); ?></p>
 				<p><?php the_category(); ?></p>
 				<p><?php the_tags(); ?></p>	
 			<?php endwhile; wp_reset_query(); ?>   
@@ -128,7 +129,8 @@ get_header(); ?>
 				$query = new WP_Query($arg);
 
 			while($query->have_posts()) : $query->the_post(); ?>
-				<h4><?php the_title(); ?></h4>
+				<h4><?php the_title(); ?></h4>				
+		       <p><?php the_excerpt(); ?></p>
 				<p>Price : <?php the_field('price'); ?></p>
 				<p>Color : <?php the_field('color')?></p>
 				<p>Size : <?php the_field('size'); ?></p>
