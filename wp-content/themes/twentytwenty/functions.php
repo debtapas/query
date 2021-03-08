@@ -820,3 +820,31 @@ function fn_redirect_wp_admin(){
 		exit();
 	}
 }
+
+
+// Post title and content display by ajax ~~~~~~~~
+function data_fetch(){
+    $response = ['html'=>'',];
+
+    $arg=array(
+    	'posts_per_page' => 2
+    );
+    $loop = new WP_Query($arg);
+    
+    if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
+
+        $response['html'] .= '<h2>'.get_the_title().'</h2>';
+        $response['html'] .= '<p>'.get_the_content().'</p>';
+
+     endwhile;
+    wp_reset_postdata();
+
+	endif;
+   
+    echo json_encode($response);
+    exit();
+
+	}
+
+add_action('wp_ajax_my_action', 'data_fetch');
+add_action('wp_ajax_nopriv_my_action', 'data_fetch');

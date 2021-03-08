@@ -183,21 +183,6 @@ get_header(); ?>
 
 			<h2>WordPress Custom Query - Part 07 - Custom Filters</h2>
 			
-
-			
-
-
-
-
-
-
-			
-
-
-
-
-
-
 </main><!-- #site-content -->
 
 

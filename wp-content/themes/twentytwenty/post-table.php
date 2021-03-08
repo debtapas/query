@@ -11,6 +11,36 @@ get_header(); ?>
 
 <main id="site-content" role="main">
 
+<!-- Ajax call bautton script and html -->
+
+	<script type="text/javascript">
+		function fetch(){
+
+			jQuery.ajax({
+				url : "<?php echo admin_url('admin-ajax.php'); ?>",
+				method:'post',
+				data : {action: 'my_action'},
+				dataType: 'json',
+				success: function(response){
+                   //alert('Ajax  success');
+                   jQuery('#datafetch').append(response.html);
+				}
+			});
+	}
+	</script>
+
+
+	<div class="container">
+		<div class="section-inner" id="datafetch">
+
+		<!-- Ajax call bautton script and html -->
+			<h4>Click this button for ajax call posts</h4>
+			<button onclick="fetch()">Click here</button>
+		</div>
+	</div><!-- #main-content -->
+
+
+
 	<div class="section-inner">
 		<h4>Display data from Database</h4>
 			<table id="example" class="display" style="width:100%">
